@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import ServiceCard from '../ServiceCard/ServiceCard';
 import Slider from '../Slider/Slider';
 
@@ -18,6 +18,7 @@ const Home = () => {
                 ></ServiceCard>)
                 }
             </div>
+            <Link to='/services' className='px-16 py-2 rounded-lg my-5 inline-block text-white bg-slate-700'>See All</Link>
         </div>
     );
 };
