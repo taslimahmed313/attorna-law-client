@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
-const Review = ({user}) => {
+const Review = () => {
+  const {user} = useContext(AuthContext);
+
     const navigate = useNavigate();
     const handleReview = () =>{
         if(user?.uid){
-            navigate('/home')
+          return  navigate('/');
         }
-        return navigate('/services')
+        return navigate('/login')
     }
     return (
       <div>

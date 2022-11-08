@@ -60,7 +60,7 @@ const Header = () => {
                   <Link to="/login">My Reviews</Link>
                 </li>
                 <li>
-                  <Link to="/login">Add Service</Link>
+                  <Link to="/addService">Add Service</Link>
                 </li>
                 <li>
                   <Link onClick={handleLogout}>Logout</Link>
