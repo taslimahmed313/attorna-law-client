@@ -7,7 +7,7 @@ const ServiceDetails = () => {
   const {user} = useContext(AuthContext);
 
     const service = useLoaderData();
-    const {serviceName, description} = service
+    const {serviceName, description, img} = service
     return (
       <div>
         {/* {
@@ -24,10 +24,11 @@ const ServiceDetails = () => {
         :
         <div>Please You Must be <Link className='underline' to='/login'>Login</Link> First</div>
         } */}
-        <div className="grid grid-cols-2">
-          <div>
-            <p>{serviceName}</p>
-            <p>{description}</p>
+        <div className="grid grid-cols-2 gap-7">
+          <div className=" rounded-lg border border-sky-500 p-3 my-6">
+            <img className=" rounded-lg" src={img} alt="" />
+            <p className="text-2xl font-semibold">{serviceName}</p>
+            <p className=" text-justify">{description}</p>
           </div>
           <div>
             <Review></Review>

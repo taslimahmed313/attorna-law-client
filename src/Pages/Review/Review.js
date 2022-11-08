@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import ReviewCard from '../ReviewCard/ReviewCard';
 
 const Review = () => {
   const {user} = useContext(AuthContext);
 
+  
     const navigate = useNavigate();
     const handleReview = () =>{
         if(user?.uid){
@@ -12,9 +14,17 @@ const Review = () => {
         }
         return navigate('/login')
     }
+    
     return (
       <div>
-        <button onClick={handleReview}>Add Review</button>
+        {user?.uid ? (
+          <Link to='/addReview'>Add Your Valuable Review Here</Link>
+        ) : (
+          <Link to='/login'>Do you want to review?</Link>
+        )}
+        <div>
+          <ReviewCard></ReviewCard>
+        </div>
       </div>
     );
 };
