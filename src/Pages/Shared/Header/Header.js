@@ -35,9 +35,9 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <a href="/" className="btn btn-ghost normal-case text-xl">
-            daisyUI
-          </a>
+          <Link to='/' className=" font-serif normal-case text-xl">
+            ATTORNA
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
@@ -46,14 +46,9 @@ const Header = () => {
             </li>
 
             <li>
-              <Link>LOG IN</Link>
+              <Link to='/login'>LOG IN</Link>
             </li>
           </ul>
-        </div>
-        <div className="navbar-end">
-          <a href="/" className="btn">
-            Get started
-          </a>
         </div>
       </div>
     );
