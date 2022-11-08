@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import './Login.css';
 
 const Login = () => {
 
   const { login, googleProvider } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  const from = location.state?.from?.pathname || '/';
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,6 +24,7 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         toast.success("You Successfully Login !!");
+        navigate(from, {replace: true})
         form.reset();
       })
       .catch((e) => console.error(e));

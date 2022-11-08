@@ -3,8 +3,7 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const AddReview = () => {
     const {user} = useContext(AuthContext);
-    console.log(user)
-
+    
     const handleReviewPost = event =>{
         event.preventDefault();
         const form = event.target;
@@ -14,7 +13,7 @@ const AddReview = () => {
           name: user?.displayName,
           email: user?.email,
           comment: review,
-          img: user?.photoURL
+          img: user?.photoURL,
         };
 
         fetch("http://localhost:5000/review",{

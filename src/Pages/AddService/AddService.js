@@ -16,7 +16,7 @@ const AddService = () => {
           img: photo,
           serviceName: title,
           price,
-          description
+          description,
         };
 
         fetch("http://localhost:5000/services", {
