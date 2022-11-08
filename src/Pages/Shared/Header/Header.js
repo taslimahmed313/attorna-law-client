@@ -45,8 +45,18 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <Link to="/" className=" font-serif normal-case text-xl">
-            ATTORNA
+          <Link to="/" className=' flex items-center'>
+            <div>
+              <img
+              className=' w-12 mr-2'
+                src="https://png.pngtree.com/png-clipart/20190705/original/pngtree-vector-balance-icon-png-image_4276078.jpg"
+                alt=""
+              />
+            </div>
+            <div>
+              <p className=" font-serif normal-case text-xl">ATTORNA</p>
+              <p className=" text-[10px] font-medium">ATTORNEYS AT LAW</p>
+            </div>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
