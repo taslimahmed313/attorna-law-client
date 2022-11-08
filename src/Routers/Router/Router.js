@@ -4,6 +4,7 @@ import AddReview from "../../Pages/AddReview/AddReview";
 import AddService from "../../Pages/AddService/AddService";
 import Login from "../../Pages/Authentication/Login/Login";
 import Register from "../../Pages/Authentication/Register/Register";
+import Blog from "../../Pages/Blog/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import MyReview from "../../Pages/MyReview/MyReview";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
           </PrivateRouter>
         ),
       },
+      {
+        path: "/blog",
+        element: <Blog></Blog>
+      }
     ],
   },
 ]);
