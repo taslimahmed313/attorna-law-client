@@ -57,7 +57,7 @@ const Header = () => {
             {user?.uid ? (
               <>
                 <li>
-                  <Link to="/login">My Reviews</Link>
+                  <Link to="/myReview">My Reviews</Link>
                 </li>
                 <li>
                   <Link to="/addService">Add Service</Link>
