@@ -1,19 +1,29 @@
-import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import ReviewCard from '../ReviewCard/ReviewCard';
 
 const Review = () => {
   const {user} = useContext(AuthContext);
 
+  const [reviews, setReviews] = useState([]);
   
-    const navigate = useNavigate();
-    const handleReview = () =>{
-        if(user?.uid){
-          return  navigate('/');
-        }
-        return navigate('/login')
-    }
+  useEffect(() => {
+    fetch("http://localhost:5000/review")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setReviews(data);
+      });
+  }, []);
+  
+    // const navigate = useNavigate();
+    // const handleReview = () =>{
+    //     if(user?.uid){
+    //       return  navigate('/');
+    //     }
+    //     return navigate('/login')
+    // }
     
     return (
       <div>
@@ -23,7 +33,12 @@ const Review = () => {
           <Link to='/login'>Do you want to review?</Link>
         )}
         <div>
-          <ReviewCard></ReviewCard>
+          {
+            reviews.map(review => <ReviewCard 
+              key={review._id}
+              review={review}
+            ></ReviewCard>)
+          }
         </div>
       </div>
     );

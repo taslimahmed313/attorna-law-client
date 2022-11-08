@@ -13,7 +13,7 @@ const AddReview = () => {
         const reviewAdd = {
           name: user?.displayName,
           email: user?.email,
-          review,
+          comment: review,
           img: user?.photoURL
         };
 

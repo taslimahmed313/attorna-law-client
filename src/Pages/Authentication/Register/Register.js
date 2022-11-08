@@ -39,17 +39,18 @@ const Register = () => {
             <p className="text-xl font-bold font-sans">
               Register as a Reviewer
             </p>
-            <input type="text" name="name" id="" placeholder="Full Name" />{" "}
+            <input type="text" name="name" id="" placeholder="Full Name" required/>{" "}
             <br />
-            <input type="text" name="photoURL" id="" placeholder="Photo URL" />
+            <input type="text" name="photoURL" id="" placeholder="Photo URL" required/>
             <br />
-            <input type="email" name="email" id="" placeholder="Your Email" />
+            <input type="email" name="email" id="" placeholder="Your Email" required/>
             <br />
             <input
               type="password"
               name="password"
               id=""
               placeholder="Password"
+              required
             />
             <br />
             <button

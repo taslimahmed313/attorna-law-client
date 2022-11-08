@@ -1,7 +1,7 @@
 .form-group {
   width: 500px;
   margin: 50px auto;
-  border: 2px solid lightgray;
+  border: 2px solid rgb(221, 217, 217);
   padding: 25px 30px;
 }
 .form-group input {
