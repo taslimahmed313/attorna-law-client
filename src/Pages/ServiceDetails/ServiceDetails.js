@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import Review from '../Review/Review';
 
 const ServiceDetails = () => {
-  const {user} = useContext(AuthContext);
+  // const {user} = useContext(AuthContext);
 
     const service = useLoaderData();
-    const {serviceName, description, img} = service
+    const {serviceName, description, img, _id} = service
     return (
       <div>
         {/* {
@@ -31,7 +30,7 @@ const ServiceDetails = () => {
             <p className=" text-justify">{description}</p>
           </div>
           <div>
-            <Review></Review>
+            <Review id={_id} serviceName={serviceName}></Review>
           </div>
         </div>
       </div>

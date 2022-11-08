@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MyReviewCard = ({review}) => {
-    const { name, img, comment, _id } = review;
+    const { name, img, comment, _id, serviceName } = review;
 
     const handleReviewDelete = (id) =>{
         fetch(`http://localhost:5000/myReview/${id}`,{
@@ -21,6 +21,7 @@ const MyReviewCard = ({review}) => {
           </div>
           <div>
             <p className="">{name}</p>
+            <p className='text-xl'>{serviceName}</p>
             <p>{comment}</p>
             <button onClick={() => handleReviewDelete(_id)} className="btn">
               Delete

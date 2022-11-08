@@ -5,6 +5,7 @@ import MyReviewCard from '../MyReviewCard/MyReviewCard';
 const MyReview = () => {
     const {user} = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
+    
     useEffect(()=>{
         fetch(`http://localhost:5000/myReview?email=${user?.email}`)
         .then(res => res.json())
@@ -14,8 +15,13 @@ const MyReview = () => {
         })
     },[user?.email])
 
+
     return (
         <div>
+            {
+                reviews.length === 0 ? <p className=' text-2xl font-serif font-semibold'>No Review</p> : <></>
+            }
+            
             {
                 reviews.map(review =><MyReviewCard
                 key={review._id}

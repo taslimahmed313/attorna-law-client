@@ -1,19 +1,25 @@
 import React, { useContext } from 'react';
+import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 const AddReview = () => {
     const {user} = useContext(AuthContext);
+    const service = useLoaderData();
+    const { price, serviceName } = service;
+    console.log(service)
     
     const handleReviewPost = event =>{
         event.preventDefault();
         const form = event.target;
         const review = form.review.value;
-        // console.log(review)
+
         const reviewAdd = {
           name: user?.displayName,
           email: user?.email,
           comment: review,
           img: user?.photoURL,
+          serviceName,
+          price
         };
 
         fetch("http://localhost:5000/review",{
