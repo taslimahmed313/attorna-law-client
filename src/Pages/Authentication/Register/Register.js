@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 import './Register.css';
 
 const Register = () => {
 
   const { register, profileUpdate } = useContext(AuthContext);
+  useTitle("Register")
 
   const handleSubmit = event =>{
     event.preventDefault();

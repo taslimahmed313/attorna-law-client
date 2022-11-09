@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import useTitle from '../../../Hooks/useTitle';
 import ServiceCard from '../ServiceCard/ServiceCard';
 import Slider from '../Slider/Slider';
 
 const Home = () => {
     const services = useLoaderData();
-    console.log(services)
+    useTitle("Home")
 
     return (
         <div>

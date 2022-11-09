@@ -1,12 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../Hooks/useTitle';
 import Review from '../Review/Review';
 
 const ServiceDetails = () => {
   // const {user} = useContext(AuthContext);
-
     const service = useLoaderData();
     const {serviceName, description, img, _id} = service
+    useTitle("Service Details")
     return (
       <div>
         {/* {

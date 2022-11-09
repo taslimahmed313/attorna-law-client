@@ -1,7 +1,9 @@
 import React from 'react';
+import useTitle from '../../Hooks/useTitle';
 import './AddService.css';
 
 const AddService = () => {
+  useTitle("Add Service")
 
     const handlePostSubmit = event => {
         event.preventDefault();

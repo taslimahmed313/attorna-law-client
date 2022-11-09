@@ -3,9 +3,11 @@ import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 import './Login.css';
 
 const Login = () => {
+  useTitle("Login")
 
   const { login, googleProvider } = useContext(AuthContext);
   const navigate = useNavigate();
