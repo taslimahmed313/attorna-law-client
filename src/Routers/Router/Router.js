@@ -42,7 +42,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addService",
-        element: <AddService></AddService>,
+        element: (
+          <PrivateRouter>
+            <AddService></AddService>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/addReview/:id",
@@ -60,8 +64,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "/blog",
-        element: <Blog></Blog>
-      }
+        element: <Blog></Blog>,
+      },
     ],
   },
 ]);

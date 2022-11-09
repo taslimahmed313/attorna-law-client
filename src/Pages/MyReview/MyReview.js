@@ -3,17 +3,26 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import MyReviewCard from '../MyReviewCard/MyReviewCard';
 
 const MyReview = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logout} = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/myReview?email=${user?.email}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            setReviews(data)
+        fetch(`http://localhost:5000/myReview?email=${user?.email}`, {
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("attorney-token")}`,
+          },
         })
-    },[user?.email])
+          .then((res) => {
+            if (res.status === 401 || res.status === 403) {
+              logout();
+            }
+            return res.json();
+          })
+          .then((data) => {
+            console.log(data);
+            setReviews(data);
+          });
+    },[logout, user?.email])
 
 
     return (

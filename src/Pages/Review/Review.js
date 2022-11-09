@@ -9,7 +9,11 @@ const Review = ({ id, serviceName }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review?serviceName=${serviceName}`)
+    fetch(`http://localhost:5000/review?serviceName=${serviceName}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("attorney-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

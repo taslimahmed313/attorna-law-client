@@ -37,11 +37,11 @@ const Header = () => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/">HOME</Link>
+                <Link to="/">Home</Link>
               </li>
 
               <li>
-                <Link>LOG IN</Link>
+                <Link>Login</Link>
               </li>
             </ul>
           </div>
@@ -55,7 +55,7 @@ const Header = () => {
             </div>
             <div>
               <p className=" font-serif normal-case text-xl">ATTORNA</p>
-              <p className=" text-[10px] font-medium">ATTORNEYS AT LAW</p>
+              <p className=" text-[10px] font-medium">ATTORNEY AT LAW</p>
             </div>
           </Link>
         </div>
