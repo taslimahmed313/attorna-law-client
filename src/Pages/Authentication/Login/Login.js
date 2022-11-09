@@ -49,7 +49,6 @@ const Login = () => {
           localStorage.setItem("attorney-token", data.token);
           navigate(from, { replace: true });
         })
-
         toast.success("You Successfully Login !!");
         form.reset();
       })
