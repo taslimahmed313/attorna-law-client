@@ -20,10 +20,10 @@ const Home = () => {
           ))}
         </div>
         <Link
-          to="/services"
-          className="px-16 py-2 rounded-lg my-5 inline-block text-white bg-slate-700"
+          to={`/services`}
+          className="px-16 py-2 rounded-l-lg rounded-r-lg my-7 font-semibold font-serif inline-block bg-[#141414] text-white hover:bg-[#3e3c3c]"
         >
-          See All
+          SHOW ALL
         </Link>
       </div>
     );

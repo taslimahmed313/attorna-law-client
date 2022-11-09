@@ -66,7 +66,7 @@ const Login = () => {
 
     return (
       <div>
-        {loading  ? (
+        {loading ? (
           <HashLoader className="m-auto" color="#36d7b7" />
         ) : (
           <div>

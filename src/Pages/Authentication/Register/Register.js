@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HashLoader } from "react-spinners";
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../Hooks/useTitle';
@@ -11,6 +11,10 @@ const [loading, setLoading] = useState(false);
 
   const { register, profileUpdate } = useContext(AuthContext);
   useTitle("Register")
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = event =>{
     event.preventDefault();
@@ -27,6 +31,26 @@ const [loading, setLoading] = useState(false);
       setLoading(false)
       console.log(user)
       handleProfileUpdate(name, photoURL);
+
+      const currentUser = {
+        email: user?.email,
+      };
+
+      fetch("http://localhost:5000/jwt", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(currentUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+
+          // JSON Token Save Local Storage.........
+          localStorage.setItem("attorney-token", data.token);
+          navigate(from, { replace: true });
+        });
       toast.success("You SuccessFully Register !!");
       form.reset();
     })
@@ -46,7 +70,7 @@ const [loading, setLoading] = useState(false);
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <p className="text-xl font-bold font-sans">
-                Register as a Reviewer
+                Register
               </p>
               <input
                 type="text"
