@@ -4,7 +4,7 @@ import "react-photo-view/dist/react-photo-view.css";
 import { Link } from 'react-router-dom';
 import './ServiceCard.css';
 
-const ServiceCard = ({service}) => {
+const ServiceCard = ({service, setLoading}) => {
     const {img, serviceName, price, description, _id} = service;
     return (
       <div className="serviceCard">

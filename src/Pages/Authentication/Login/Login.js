@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { HashLoader } from "react-spinners";
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import useTitle from '../../../Hooks/useTitle';
 import './Login.css';
 
 const Login = () => {
   useTitle("Login")
+  const [loading, setLoading] = useState(false);
 
   const { login, googleProvider } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -17,6 +19,7 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setLoading(true)
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -25,6 +28,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setLoading(false)
 
         const currentUser = {
           email : user?.email
@@ -63,42 +67,51 @@ const Login = () => {
 
     return (
       <div>
-        <div>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <p className="text-xl font-bold font-sans mb-0">Login</p>
-              <br />
-              <input type="email" name="email" id="" placeholder="Your Email" />
-              <br />
-              <input
-                type="password"
-                name="password"
-                id=""
-                placeholder="Password"
-              />
-              <br />
-              <button
-                className="btn btn-ghost w-full bg-[#a19f98] font-semibold my-4 border-0"
-                type="submit"
-              >
-                LOG IN
-              </button>
-              <p>
-                Don't have an account?
-                <Link className="text-[tomato] underline ml-2" to="/register">
-                  Create an account
-                </Link>
-              </p>
-            </div>
-          </form>
-          <button
-            onClick={handleGoogleLogin}
-            className="flex items-center btn-google"
-          >
-            <FcGoogle className="text-2xl ml-1 mr-10"></FcGoogle>
-            <span className="ml-10">Continue With Google</span>
-          </button>
-        </div>
+        {loading  ? (
+          <HashLoader className="m-auto" color="#36d7b7" />
+        ) : (
+          <div>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <p className="text-xl font-bold font-sans mb-0">Login</p>
+                <br />
+                <input
+                  type="email"
+                  name="email"
+                  id=""
+                  placeholder="Your Email"
+                />
+                <br />
+                <input
+                  type="password"
+                  name="password"
+                  id=""
+                  placeholder="Password"
+                />
+                <br />
+                <button
+                  className="btn btn-ghost w-full bg-[#a19f98] font-semibold my-4 border-0"
+                  type="submit"
+                >
+                  LOG IN
+                </button>
+                <p>
+                  Don't have an account?
+                  <Link className="text-[tomato] underline ml-2" to="/register">
+                    Create an account
+                  </Link>
+                </p>
+              </div>
+            </form>
+            <button
+              onClick={handleGoogleLogin}
+              className="flex items-center btn-google"
+            >
+              <FcGoogle className="text-2xl ml-1 mr-10"></FcGoogle>
+              <span className="ml-10">Continue With Google</span>
+            </button>
+          </div>
+        )}
       </div>
     );
 };

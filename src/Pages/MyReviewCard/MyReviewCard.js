@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 
 const MyReviewCard = ({review}) => {
     const { name, img, comment, _id, serviceName } = review;
+    console.log(_id)
 
     const [updateReview, setUpdateReview] = useState(review);
 
     // Handle Update Review
     const handleUpdateReview = (event) =>{
       event.preventDefault();
+      // const form = event.target;
 
       fetch(`http://localhost:5000/myReview/${review._id}`, {
         method: "PUT",
@@ -19,6 +21,10 @@ const MyReviewCard = ({review}) => {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+          if(data.modifiedCount > 0){
+            alert("Successfully Modified")
+          }
+
         });
     }
 
@@ -29,7 +35,6 @@ const MyReviewCard = ({review}) => {
       newUser[field] = value;
       setUpdateReview(newUser);
     };
-
 
 
 
@@ -56,7 +61,7 @@ const MyReviewCard = ({review}) => {
             <button onClick={() => handleReviewDelete(_id)} className="btn">
               Delete
             </button>
-            
+
             {/* Update User....................................> */}
             <div>
               {/* The button to open modal */}
@@ -92,7 +97,7 @@ const MyReviewCard = ({review}) => {
                     rows="4"
                   ></textarea>{" "}
                   <br />
-                  <button className="btn" onClick={handleUpdateReview}>
+                  <button className="btn" onClick={ handleUpdateReview}>
                     submit
                   </button>
                 </div>
