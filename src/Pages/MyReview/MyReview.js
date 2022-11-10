@@ -55,7 +55,7 @@ const MyReview = () => {
             No Review Found. Please! Add Review.
           </p>
         ) : (
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid lg:grid-cols-2 gap-6">
             {reviews.map((review) => (
               <MyReviewCard
                 key={review._id}

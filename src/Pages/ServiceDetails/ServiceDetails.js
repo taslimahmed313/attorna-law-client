@@ -11,7 +11,7 @@ const ServiceDetails = () => {
 
     return (
       <div>
-        <div className="grid grid-cols-2 gap-7">
+        <div className="grid lg:grid-cols-2 gap-7">
           <div className=" rounded-lg border  p-3 my-6 shadow-2xl bg-white">
             <img className=" rounded-lg w-full" src={img} alt="" />
             <p className="text-2xl font-semibold font-serif my-3">

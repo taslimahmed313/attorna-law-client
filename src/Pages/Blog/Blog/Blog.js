@@ -6,7 +6,7 @@ const Blog = () => {
   useTitle("Blog")
   
     return (
-      <div className="grid grid-cols-2 gap-8 text-justify">
+      <div className="grid lg:grid-cols-2 gap-8 text-justify">
         <div className=" border border-y-amber-300 p-6 rounded-xl">
           <img
             className="w-full rounded-lg mb-3"

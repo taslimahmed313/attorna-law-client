@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
     return (
-      <div className="grid grid-cols-2 mt-12 mb-6 shadow-2xl">
+      <div className="grid lg:grid-cols-2 mt-12 mb-6 shadow-2xl">
         <div className="bg-white text-justify p-10 rounded-l-lg">
           <p className=" underline decoration-orange-400 decoration-4  font-bold  font-serif mb-3 tracking-widest">
             ABOUT ATTORNA

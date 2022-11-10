@@ -17,3 +17,9 @@
   font-weight: 500;
   color: black;
 }
+
+@media screen and (max-width: 576px) {
+  .form-group {
+    width: 100%;
+  }
+}

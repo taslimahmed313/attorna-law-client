@@ -11,3 +11,8 @@
 .btn-google:hover {
   color: tomato;
 }
+@media screen and (max-width: 576px) {
+  .btn-google {
+    width: 100%;
+  }
+}

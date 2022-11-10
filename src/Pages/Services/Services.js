@@ -25,7 +25,7 @@ const Services = () => {
         {loading ? (
           <HashLoader className="m-auto" color="#36d7b7" /> 
         ) : (
-          <div className="grid grid-cols-3 gap-6 my-12">
+          <div className="grid lg:grid-cols-3 gap-6 my-12">
             {services.map((service) => (
               <ServiceCard key={service._id} service={service}></ServiceCard>
             ))}

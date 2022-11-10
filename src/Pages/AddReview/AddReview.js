@@ -48,7 +48,7 @@ const AddReview = () => {
 
     return (
       <div>
-        <div className="bg-white w-1/2 mx-auto mb-10 p-5 shadow-2xl rounded-lg">
+        <div className="bg-white lg:w-1/2 mx-auto mb-10 p-5 shadow-2xl rounded-lg">
           <form onSubmit={handleReviewPost}>
             <label
               className="text-2xl text-black font-serif font-semibold my-3 inline-block"

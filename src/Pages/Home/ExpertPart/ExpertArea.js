@@ -5,11 +5,11 @@ const ExpertArea = () => {
       <div>
         <div className="hero my-10">
           <div className="hero-content flex-col lg:flex-row">
-            <div className="w-1/2 relative">
+            <div className="lg:w-1/2 relative">
               <img
                 alt=""
                 src="https://img.freepik.com/free-photo/low-angle-shot-tall-business-building-nyc_181624-615.jpg?size=626&ext=jpg&ga=GA1.2.939492190.1661093851&semt=ais"
-                className=" w-4/5 h-full rounded-lg shadow-2xl"
+                className="w-4/5 h-full rounded-lg shadow-2xl"
               />
               <img
                 alt=""
@@ -17,7 +17,7 @@ const ExpertArea = () => {
                 className="absolute top-[-25%] right-5 w-3/4 border-8 rounded-lg shadow-2xl"
               />
             </div>
-            <div className="w-1/2 text-justify">
+            <div className="lg:w-1/2 lg:text-justify">
               <p className="text-md font-semibold text-[#A8A8A8] tracking-widest pb-3">
                 WHAT WE ARE EXPERT AT
               </p>

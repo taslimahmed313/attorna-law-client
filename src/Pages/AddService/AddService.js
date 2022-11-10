@@ -50,7 +50,7 @@ const AddService = () => {
           <p className="text-2xl my-3 font-serif font-semibold">
             Add Your Service Here
           </p>
-          <div className=" w-1/2 bg-white shadow-2xl rounded-lg mx-auto mb-10 p-5">
+          <div className=" lg:w-1/2 bg-white shadow-2xl rounded-lg mx-auto mb-10 p-5">
             <form onSubmit={handlePostSubmit} className="add-service">
               <label htmlFor="photo">Provide Service Image</label>
               <br />
