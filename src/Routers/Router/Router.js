@@ -68,8 +68,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/updateReview",
+        path: "/update/:id",
         element: <UpdateReview></UpdateReview>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/update/${params.id}`),
       },
       {
         path: "/blog",
@@ -79,6 +81,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "*",
-    element:<ErrorPage></ErrorPage>
-  }
+    element: <ErrorPage></ErrorPage>,
+  },
 ]);

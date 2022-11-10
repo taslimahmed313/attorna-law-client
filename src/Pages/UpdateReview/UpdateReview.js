@@ -1,24 +1,91 @@
-import React from 'react';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
-const UpdateReview = ({ handleUpdateReview, handleInputChange }) => {
+const UpdateReview = ( ) => {
+  const storedReview = useLoaderData();
+  const navigate = useNavigate();
+  console.log(storedReview);
+
+
+  const [review, setReview] = useState(storedReview);
+
+    const handleUpdateUser = (event) => {
+      event.preventDefault();
+    //   console.log(user);
+
+    fetch(`http://localhost:5000/update/${storedReview._id}`, {
+        method:'PUT',
+        headers:{
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(review)
+    })
+    .then(res => res.json())
+    .then(data => {
+        ;
+        if(data.modifiedCount > 0){
+            toast.success('Update Successfully!!')
+            console.log(data);
+            navigate(`/myReview`)
+        }
+    })
+  };
+  
+  const handleInputChange = (event) => {
+    const field = event.target.name;
+    const value = event.target.value;
+    const newUser = { ...review };
+    newUser[field] = value;
+    setReview(newUser);
+  };
+
+
   return (
     <div>
-      <label htmlFor="name">Name</label>
-      <br />
-      <input onChange={handleInputChange} type="text" name="name" id="" />
-      <br />
-      <label htmlFor="review">Edit Review</label> <br />
-      <textarea
-        onChange={handleInputChange}
-        name="comment"
-        id="review"
-        cols="30"
-        rows="4"
-      ></textarea>{" "}
-      <br />
-      <button className="btn" onClick={handleUpdateReview}>
-        submit
-      </button>
+      <div className="bg-white w-1/2 text-start mx-auto mb-10 p-5 shadow-2xl rounded-lg">
+        <h1 className="text-2xl text-black font-serif font-semibold my-3 inline-block">
+          Update Your Review Here!!
+        </h1>
+        <br />
+        <label
+          className=" text-black font-serif font-semibold my-3 inline-block"
+          htmlFor="name"
+        >
+          Name
+        </label>
+        <br />
+        <input
+          className="w-full h-10 rounded-lg border border-gray-700"
+          onChange={handleInputChange}
+          type="text"
+          name="name"
+          id="name"
+        />
+        <br />
+        <label
+          className=" text-black font-serif font-semibold my-3 inline-block"
+          htmlFor="review"
+        >
+          Edit Review
+        </label>{" "}
+        <br />
+        <textarea
+          className="w-full rounded-lg border border-gray-700"
+          onChange={handleInputChange}
+          name="comment"
+          id="review"
+          cols="30"
+          rows="4"
+        ></textarea>{" "}
+        <br />
+        <button
+          onClick={handleUpdateUser}
+          className="px-16 w-full py-2 rounded-l-lg rounded-r-lg my-7 font-semibold font-serif inline-block bg-[#141414] text-white hover:bg-[#3e3c3c]"
+        >
+          Submit
+        </button>
+      </div>
     </div>
   );
 };

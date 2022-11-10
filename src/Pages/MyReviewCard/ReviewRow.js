@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ReviewRow = ({ review, handleReviewDelete, handleUpdateReview }) => {
   const { name, serviceImg, comment,img, price,email, _id, serviceName } = review;
@@ -75,9 +76,11 @@ const ReviewRow = ({ review, handleReviewDelete, handleUpdateReview }) => {
         >
           {status ? status : "Pending"}
         </button> */}
+        <Link to={`/update/${_id}`}>
+          <div className="btn">Update</div>
+        </Link>
       </th>
     </tr>
-    
   );
 };
 

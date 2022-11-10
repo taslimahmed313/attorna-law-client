@@ -3,7 +3,6 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 import MyReviewCard from '../MyReviewCard/MyReviewCard';
-import ReviewRow from '../MyReviewCard/ReviewRow';
 
 const MyReview = () => {
     const {user, logout} = useContext(AuthContext);
@@ -77,46 +76,26 @@ const MyReview = () => {
             No Review Found. Please! Add Review.
           </p>
         ) : (
-          <div>
-            <h1 className="text-2xl font-serif font-medium">
-              Number of Review : {reviews.length}
-            </h1>
-            <div className="overflow-x-auto w-full">
-              <table className="table w-full">
-                <thead>
-                  <tr>
-                    <th>
-                      <label></label>
-                    </th>
-                    <th>Service Details</th>
-                    <th>Reviewer Details</th>
-                    <th>Review</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {reviews.map((review) => (
-                    <ReviewRow
-                      key={review._id}
-                      handleReviewDelete={handleReviewDelete}
-                      review={review}
-                      // handleUpdateReview={handleUpdateReview}
-                    ></ReviewRow>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          <div className="grid grid-cols-2 gap-6">
+            {reviews.map((review) => (
+              <MyReviewCard
+                key={review._id}
+                handleReviewDelete={handleReviewDelete}
+                review={review}
+                // handleUpdateReview={handleUpdateReview}
+              ></MyReviewCard>
+            ))}
           </div>
         )}
 
-        {reviews.map((review) => (
+        {/* {reviews.map((review) => (
           <MyReviewCard
             key={review._id}
             review={review}
             reviews={reviews}
             setReviews={setReviews}
           ></MyReviewCard>
-        ))}
+        ))} */}
       </div>
     );
 };
