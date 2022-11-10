@@ -34,7 +34,7 @@ const Login = () => {
           email : user?.email
         }
 
-        fetch("http://localhost:5000/jwt",{
+        fetch("https://attorna-law-server.vercel.app/jwt",{
           method : "POST",
           headers : {
             "content-type": "application/json"
@@ -60,6 +60,26 @@ const Login = () => {
     .then(result =>{
       const user = result.user;
       console.log(user)
+      const currentUser = {
+        email: user?.email,
+      };
+
+      fetch("https://attorna-law-server.vercel.app/jwt", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(currentUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+
+          // JSON Token Save Local Storage.........
+          localStorage.setItem("attorney-token", data.token);
+          // navigate(from, { replace: true });
+        });
+      toast.success("You Successfully Login !!");
     })
     .catch(e => console.error(e))
   }

@@ -6,6 +6,13 @@
   background-blend-mode: darken;
   border-radius: 4px;
 }
+.banner-section {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
 .banner-img {
   object-fit: cover;
   border-top: 5px solid #edb578;

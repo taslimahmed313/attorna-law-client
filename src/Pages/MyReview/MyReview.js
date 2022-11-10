@@ -10,7 +10,7 @@ const MyReview = () => {
     useTitle("My Review")
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/myReview?email=${user?.email}`, {
+        fetch(`https://attorna-law-server.vercel.app/myReview?email=${user?.email}`, {
           headers: {
             authorization: `Bearer ${localStorage.getItem("attorney-token")}`,
           },
@@ -28,44 +28,23 @@ const MyReview = () => {
     },[logout, user?.email])
 
 
-    // // Update Review...............................................>
-    // const handleUpdateReview = (event) => {
-    //   event.preventDefault();
-    //   // const form = event.target;
-
-    //   fetch(`http://localhost:5000/myReview/${review._id}`, {
-    //     method: "PUT",
-    //     headers: {
-    //       "content-type": "application/json",
-    //     },
-    //     body: JSON.stringify(updateReview),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //       if (data.modifiedCount > 0) {
-    //         alert("Successfully Modified");
-    //       }
-    //     });
-    // };
-
-
-
-
     // Delete Review-------------------------------------------------->
     const handleReviewDelete = (id) => {
-      fetch(`http://localhost:5000/myReview/${id}`, {
-        method: "DElETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          if (data.deletedCount > 0) {
-            const remain = reviews.filter((rv) => rv._id !== id);
-            setReviews(remain);
-            toast.success("Your Review Deleted Successfully!!");
-          }
-        });
+      const proceed = window.confirm("Are sure Delete this review?")
+      if(proceed){
+         fetch(`https://attorna-law-server.vercel.app/myReview/${id}`, {
+           method: "DElETE",
+         })
+           .then((res) => res.json())
+           .then((data) => {
+             console.log(data);
+             if (data.deletedCount > 0) {
+               const remain = reviews.filter((rv) => rv._id !== id);
+               setReviews(remain);
+               toast.success("Your Review Deleted Successfully!!");
+             }
+           });
+      }
     };
 
 
@@ -82,20 +61,10 @@ const MyReview = () => {
                 key={review._id}
                 handleReviewDelete={handleReviewDelete}
                 review={review}
-                // handleUpdateReview={handleUpdateReview}
               ></MyReviewCard>
             ))}
           </div>
         )}
-
-        {/* {reviews.map((review) => (
-          <MyReviewCard
-            key={review._id}
-            review={review}
-            reviews={reviews}
-            setReviews={setReviews}
-          ></MyReviewCard>
-        ))} */}
       </div>
     );
 };

@@ -1,9 +1,12 @@
 import React from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import useTitle from '../../Hooks/useTitle';
 import './AddService.css';
 
 const AddService = () => {
   useTitle("Add Service")
+  const navigate = useNavigate();
 
     const handlePostSubmit = event => {
         event.preventDefault();
@@ -22,7 +25,7 @@ const AddService = () => {
           date : Date()
         };
 
-        fetch("http://localhost:5000/services", {
+        fetch("https://attorna-law-server.vercel.app/services", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -32,6 +35,11 @@ const AddService = () => {
         .then(res => res.json())
         .then(data =>{
             console.log(data)
+            if(data.acknowledged){
+              toast.success("Your Service Add Successfully !!")
+              form.reset();
+              navigate('/');
+            }
         })
     }
 

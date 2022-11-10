@@ -36,7 +36,7 @@ const [loading, setLoading] = useState(false);
         email: user?.email,
       };
 
-      fetch("http://localhost:5000/jwt", {
+      fetch("https://attorna-law-server.vercel.app/jwt", {
         method: "POST",
         headers: {
           "content-type": "application/json",

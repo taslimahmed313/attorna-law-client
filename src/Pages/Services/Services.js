@@ -9,7 +9,7 @@ const Services = () => {
 
   useEffect(()=>{
     setLoading(true)
-    fetch("http://localhost:5000/services")
+    fetch("https://attorna-law-server.vercel.app/services")
     .then(res => res.json())
     .then(data => {
       setLoading(false);
@@ -18,18 +18,8 @@ const Services = () => {
     
   },[])
 
-    // setLoading(true);
-    // // const services = useLoaderData();
-    // setLoading(false);
     useTitle("Services")
-    
-
-
-    // if (loading) {
-    //   return <HashLoader className="m-auto" color="#36d7b7" />;
-    // }
-    
-    // return setLoading(false);
+  
     return (
       <div>
         {loading ? (

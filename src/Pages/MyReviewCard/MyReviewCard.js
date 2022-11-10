@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import "./MyReviewCard.css";
 
 const MyReviewCard = ({ review, handleReviewDelete }) => {
-  const { name, serviceImg, comment,img,email, _id, serviceName, price } = review;
+  const { name, serviceImg, comment,img,email, _id, serviceName } = review;
 
   return (
     <div className="my-5 shadow-2xl rounded-lg">

@@ -9,7 +9,7 @@ const Review = ({ id, serviceName }) => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/review?serviceName=${serviceName}`, {
+    fetch(`https://attorna-law-server.vercel.app/review?serviceName=${serviceName}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("attorney-token")}`,
       },
@@ -34,7 +34,6 @@ const Review = ({ id, serviceName }) => {
         <></>
       )}
       {user?.uid ? (
-        // <Link to={`/addReview/${id}`}>Add Your Valuable Review Here</Link>
         <div className="w-[250px] h-[180px] sticky bottom-0 p-4 my-6 bg-white rounded-lg shadow-lg">
           <p className="text-xl font-serif font-semibold">
             Forward your review

@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/service"),
+        loader: () => fetch("https://attorna-law-server.vercel.app/service"),
       },
       {
         path: "/services",
@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
         path: "/services/:id",
         element: <ServiceDetails></ServiceDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://attorna-law-server.vercel.app/services/${params.id}`),
       },
       {
         path: "/addService",
@@ -57,7 +57,7 @@ export const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(`https://attorna-law-server.vercel.app/services/${params.id}`),
       },
       {
         path: "/myReview",
@@ -71,7 +71,7 @@ export const router = createBrowserRouter([
         path: "/update/:id",
         element: <UpdateReview></UpdateReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/update/${params.id}`),
+          fetch(`https://attorna-law-server.vercel.app/update/${params.id}`),
       },
       {
         path: "/blog",
