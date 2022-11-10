@@ -7,7 +7,7 @@ import './ServiceCard.css';
 const ServiceCard = ({service}) => {
     const {img, serviceName, price, description, _id} = service;
     return (
-      <div className="serviceCard  bg-white shadow-2xl">
+      <div className="serviceCard  bg-white shadow-2xl mt-5">
         <PhotoProvider>
           <PhotoView src={img}>
             <img className="w-full h-[200px] rounded-lg	" src={img} alt="" />

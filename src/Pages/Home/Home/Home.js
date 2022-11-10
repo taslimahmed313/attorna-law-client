@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import useTitle from '../../../Hooks/useTitle';
 import About from '../About/About';
+import ExpertArea from '../ExpertPart/ExpertArea';
 import ServiceCard from '../ServiceCard/ServiceCard';
 import Slider from '../Slider/Slider';
 
@@ -25,6 +26,9 @@ const Home = () => {
         >
           SHOW ALL
         </Link>
+        <div>
+          <ExpertArea></ExpertArea>
+        </div>
       </div>
     );
 };
