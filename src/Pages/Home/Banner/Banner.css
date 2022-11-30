@@ -1,7 +1,6 @@
 .banner {
   background: rgba(0, 0, 0, 0.7)
     url("https://img.freepik.com/premium-photo/judge-gavel-with-justice-lawyers-having-team-meeting-law-firm-background_1418-2118.jpg?w=1380");
-  height: 80vh;
   background-size: cover;
   background-blend-mode: darken;
   border-radius: 4px;
@@ -21,11 +20,11 @@
   border-bottom-left-radius: 10px;
 }
 
-@media screen and (max-width: 576px) {
+/* @media screen and (max-width: 576px) {
   .banner {
     height: full;
   }
   .banner-section {
     grid-template-columns: repeat(1fr);
   }
-}
+} */
