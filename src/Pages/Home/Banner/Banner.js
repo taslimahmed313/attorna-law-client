@@ -20,7 +20,7 @@ const Banner = () => {
             <h3 className="lg:text-lg  uppercase text-center text-black font-medium bg-[#D9A86D] py-2 my-3 rounded-lg">
               I Am Always Prepared For Any Case{" "}
             </h3>
-            <p className="">
+            <p>
               A lawyer is a professional who is qualified to offer advice about
               the law or represent someone in legal matters. A lawyer can also
               be called an attorney, a solicitor, a counselor, a barrister, or —
